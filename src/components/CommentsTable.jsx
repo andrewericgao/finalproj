@@ -1,5 +1,5 @@
 import React from 'react';
-import './CommentsTable.css';
+// import './CommentsTable.css';
 
 const CommentsTable = ({ commentsData }) => {
   if (commentsData.length === 0) {
