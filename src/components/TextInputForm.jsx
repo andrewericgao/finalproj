@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import './TextInputForm.css';
 
-const TextAnalysisForm = () => {
+const TextInputForm = ({ onAnalysisComplete,onTextChange }) => {
     const [text, setText] = useState('');
-    const [response, setResponse] = useState('');
+    const handleTextChange = (e) => {
+        const newText = e.target.value;
+        setText(newText);
+        onTextChange(newText); // Call the passed function with the new text
+    };
 
     const callAPI = async (inputText) => {
         try {
@@ -18,31 +23,38 @@ const TextAnalysisForm = () => {
             };
 
             const response = await fetch("https://eip9ikhrl0.execute-api.us-east-2.amazonaws.com/dev", requestOptions);
-            const result = await response.text();
-            setResponse(JSON.parse(result).body);
+            const result = await response.json();
+            return result.body;
         } catch (error) {
-            console.log('error', error);
+            console.error('error', error);
+            return null; // Return null or an appropriate error response
         }
     }
 
-    const handleSubmit = (event) => {
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        callAPI(text);
-    }
+        const comments = text.split('\n').filter(comment => comment.trim() !== '');
+        const results = await Promise.all(comments.map(comment => callAPI(comment)));
+        onAnalysisComplete(results); 
+    };
 
     return (
-        <div>
-            <h1>TEXT SENTIMENT ANALYSIS</h1>
+        <div className="text-input-form">
             <form onSubmit={handleSubmit}>
-                <label>
-                    Enter your text:
-                    <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+                <label className="input-label">
+                    Enter your text (one comment per line):
                 </label>
-                <button type="submit">ANALYZE SENTIMENT</button>
+                <textarea 
+            className="text-input" 
+            value={text} 
+            onChange={handleTextChange} // Update to use handleTextChange
+            placeholder="Type your comments here..." 
+        />
+                <button type="submit" className="submit-button">Analyze Sentiment</button>
             </form>
-            {response && <p>Sentiment Analysis Result: {response}</p>}
         </div>
     );
 };
 
-export default TextAnalysisForm;
+export default TextInputForm;

@@ -1,0 +1,32 @@
+/* Banner.css */
+
+.banner {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #fff; /* White background for a clean look */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea; /* Subtle border */
+}
+
+.banner-item {
+    text-align: center;
+}
+
+.banner-title {
+    font-size: 0.85rem;
+    color: #7a7a7a; /* Soft gray for titles */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.banner-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #4a90e2; /* Blue color for values */
+    letter-spacing: 0.5px;
+}

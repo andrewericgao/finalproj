@@ -1,0 +1,43 @@
+/* TextInputForm.css */
+
+.text-input-form {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.text-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    resize: vertical; /* Allows the user to resize the textarea vertically */
+}
+
+.submit-button {
+    display: block;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #3a7bd5;
+}
