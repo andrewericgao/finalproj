@@ -8,28 +8,28 @@
 .content-area {
   flex-grow: 1;
   overflow-y: auto;
-  padding: 0 20px; /* Added padding */
+  padding: 0 20px;
 }
 
-/* Styles specific to charts container */
-.charts-container {
+/* Styles for charts and analysis container */
+.charts-container, .analysis-container {
   display: flex;
-  justify-content: space-between; /* Space out children */
-  flex-wrap: wrap; /* Allow wrapping on small screens */
+  justify-content: space-between;
+  flex-wrap: wrap;
   margin: 20px 0;
 }
 
-/* Targeting specific chart components */
-.sentiment-pie-chart, .word-cloud {
-  flex-basis: 48%; /* Set a base width for each chart */
-  max-width: 48%; /* Maximum width to maintain side-by-side layout */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+/* Adjust the width of each component in the charts and analysis container */
+.sentiment-pie-chart, .word-cloud, .top-words-chart, .comments-table-container {
+  flex-basis: 48%;
+  max-width: 48%;
+  box-sizing: border-box;
 }
 
-/* Responsive design adjustments for smaller screens */
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
-  .sentiment-pie-chart, .word-cloud {
-    flex-basis: 100%; /* Full width for smaller screens */
+  .sentiment-pie-chart, .word-cloud, .top-words-chart, .comments-table-container {
+    flex-basis: 100%;
     max-width: 100%;
   }
 }

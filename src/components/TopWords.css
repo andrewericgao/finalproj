@@ -1,16 +1,24 @@
 /* TopWords.css */
 
 .top-words-chart {
-    width: 100%;
-    max-width: 800px;
-    margin: 35px auto;
-    padding: 25px;
-    background-color: #ffffff; /* Crisp white for a modern, clean look */
-    border-radius: 20px; /* More pronounced rounded corners for a softer look */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
-    color: #424242; /* Dark gray for sophistication */
-    font-family: 'Arial', 'Helvetica Neue', sans-serif; /* Contemporary, clean font */
+    width: 48%; /* Adjust width to take half of the container */
+    height: auto; 
+    margin: 10px 1%; /* Adjust margins for proper spacing */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Ensure it aligns next to another inline-block element */
+    vertical-align: top; /* Aligns top of elements */
 }
+
+@media (max-width: 768px) {
+    .top-words-chart {
+        width: 100%; /* Full width for smaller screens */
+        margin: 10px 0;
+    }
+}
+
 
 .chart-container {
     height: 100%;

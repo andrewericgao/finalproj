@@ -2,7 +2,7 @@
 
 .sentiment-pie-chart {
     float: left;
-    width: 48%; /* Adjust width as needed */
+    width: 43%; /* Adjust width as needed */
     height: 450px;
     margin: 20px 1%; /* Add margin to separate from the WordCloud */
     padding: 35px;
@@ -19,15 +19,25 @@
     }
 }
 
+
 .comments-table-container {
+    width: 43%; /* Adjust width to take half of the container */
     max-height: 400px;
     overflow-y: auto;
-    margin: 20px;
+    margin: 10px 1%; /* Adjust margins for proper spacing */
     padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     background-color: #fff;
-    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Ensure it aligns next to another inline-block element */
+    vertical-align: top; /* Aligns top of elements */
+}
+
+@media (max-width: 768px) {
+    .comments-table-container {
+        width: 100%; /* Full width for smaller screens */
+        margin: 10px 0;
+    }
 }
 
 .comments-table {
