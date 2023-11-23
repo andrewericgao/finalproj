@@ -1,5 +1,3 @@
-// SentimentPieChart.jsx
-
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
 import './SentimentPieChart.css'; // Importing the CSS for styling
@@ -11,39 +9,51 @@ const SentimentPieChart = ({ sentimentData }) => {
             {
                 label: 'Sentiment Distribution',
                 data: sentimentData,
-                backgroundColor: ['#4caf50', '#f44336', '#ffeb3b', '#9e9e9e'],
-                borderWidth: 0, // No borders for a cleaner look
-                hoverOffset: 4, // Slight offset on hover for interactivity
+                backgroundColor: ['#49A54D', '#D32F2F', '#FFC107', '#7B1FA2'], // Updated color palette
+                borderWidth: 0,
+                hoverOffset: 8,
             },
         ],
     };
 
     const options = {
         responsive: true,
-        maintainAspectRatio: false, // Better control for responsiveness
+        maintainAspectRatio: false,
         plugins: {
             legend: {
-                position: 'bottom', // Legend at the bottom for better layout
+                position: 'bottom',
                 labels: {
                     boxWidth: 20,
-                    padding: 20,
+                    padding: 25,
                     font: {
-                        size: 14 // Larger font for readability
-                    }
+                        size: 18,
+                        family: "'Roboto', sans-serif",
+                    },
+                    color: '#343a40'
                 }
             },
             tooltip: {
                 enabled: true,
-                backgroundColor: 'rgba(0, 0, 0, 0.7)', // Tooltip styling
+                backgroundColor: '#212529',
                 titleFont: {
-                    size: 16,
-                    weight: 'bold'
+                    size: 20,
+                    weight: 'bold',
+                    family: "'Roboto', sans-serif"
                 },
                 bodyFont: {
-                    size: 14
+                    size: 18,
+                    family: "'Roboto', sans-serif"
                 },
-                padding: 10
+                padding: 20,
+                cornerRadius: 6,
+                caretSize: 8,
+                bodySpacing: 7,
             }
+        },
+        cutout: '65%',
+        animation: {
+            animateScale: true,
+            animateRotate: true // Rotate animation for dynamic entry
         }
     };
 

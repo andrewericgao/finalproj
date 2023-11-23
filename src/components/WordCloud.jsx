@@ -5,9 +5,9 @@ import ReactWordcloud from 'react-wordcloud';
 import './WordCloud.css'; // Importing the CSS for styling
 
 const WordCloud = ({ words }) => {
-    if (words.length === 0) {
-        return <div className="word-cloud-empty">No data for word cloud</div>;
-    }
+    // if (words.length === 0) {
+    //     return <div className="word-cloud-empty">No data for word cloud</div>;
+    // }
 
     const options = {
         rotations: 2,

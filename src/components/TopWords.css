@@ -2,20 +2,47 @@
 
 .top-words-chart {
     width: 100%;
-    max-width: 600px;
-    height: auto;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+    max-width: 800px;
+    margin: 35px auto;
+    padding: 25px;
+    background-color: #ffffff; /* Crisp white for a modern, clean look */
+    border-radius: 20px; /* More pronounced rounded corners for a softer look */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08); /* Soft shadow for depth */
+    color: #424242; /* Dark gray for sophistication */
+    font-family: 'Arial', 'Helvetica Neue', sans-serif; /* Contemporary, clean font */
 }
 
 .chart-container {
-    flex-grow: 1;
+    height: 100%;
     position: relative;
+}
+
+/* Bar chart customization for a more modern look */
+.bar-chart {
+    background-color: #0088cc; /* Fresh, modern color for bars */
+    opacity: 0.9; /* Slight transparency for a sleek touch */
+    border-radius: 4px; /* Modern rounded bars */
+}
+
+/* Hover effect for bars to enhance interactivity */
+.bar-chart:hover {
+    background-color: #006699; /* Darker shade for hover state */
+    opacity: 1; /* Full color on hover */
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2); /* Deeper shadow for a pop-up effect */
+}
+
+/* Styling for table headers */
+.comments-table th {
+    background-color: #fafafa; /* Very light gray for headers */
+    color: #333333; /* Contrast color for readability */
+    font-weight: 700; /* Bold headers for emphasis */
+}
+
+/* Responsive design for adaptability */
+@media (max-width: 768px) {
+    .top-words-chart {
+        max-width: 100%; /* Full width on smaller screens */
+        margin: 20px;
+        padding: 15px;
+    }
 }

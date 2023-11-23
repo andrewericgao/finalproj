@@ -1,38 +1,35 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+  background: #f4f4f4;
 }
 
-.App-link {
-  color: #61dafb;
+.content-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 0 20px; /* Added padding */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* Styles specific to charts container */
+.charts-container {
+  display: flex;
+  justify-content: space-between; /* Space out children */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  margin: 20px 0;
+}
+
+/* Targeting specific chart components */
+.sentiment-pie-chart, .word-cloud {
+  flex-basis: 48%; /* Set a base width for each chart */
+  max-width: 48%; /* Maximum width to maintain side-by-side layout */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* Responsive design adjustments for smaller screens */
+@media (max-width: 768px) {
+  .sentiment-pie-chart, .word-cloud {
+    flex-basis: 100%; /* Full width for smaller screens */
+    max-width: 100%;
   }
 }

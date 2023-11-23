@@ -1,28 +1,39 @@
 /* TextInputForm.css */
 
 .text-input-form {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    padding: 25px;
+    background: linear-gradient(145deg, #f5f5f5, #ffffff);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    max-width: 650px; /* Adjusted for better alignment */
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border for depth */
 }
 
 .input-label {
     display: block;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #4a4a4a;
+    font-weight: bold;
 }
 
 .text-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    line-height: 1.5;
-    resize: vertical; /* Allows the user to resize the textarea vertically */
+    width: calc(100% - 30px); /* Adjust width to fit container */
+    padding: 15px;
+    border: 2px solid rgba(200, 200, 200, 0.6);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    resize: vertical;
+    transition: all 0.3s ease;
+    background-color: #ffffff; /* Crisp white background */
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.text-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
 }
 
 .submit-button {
@@ -30,14 +41,28 @@
     background-color: #4a90e2;
     color: #fff;
     border: none;
-    padding: 10px 15px;
-    margin-top: 15px;
-    border-radius: 4px;
-    font-size: 1rem;
+    padding: 15px 25px;
+    margin-top: 25px;
+    border-radius: 8px;
+    font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-.submit-button:hover {
-    background-color: #3a7bd5;
+.submit-button:hover, .submit-button:focus {
+    background-color: #357abd;
+    transform: translateY(-3px);
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .text-input-form {
+        max-width: 90%;
+        padding: 20px;
+    }
 }

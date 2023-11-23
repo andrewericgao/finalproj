@@ -1,5 +1,3 @@
-// Banner.jsx
-
 import React from 'react';
 import './Banner.css'; // Importing the CSS for styling
 

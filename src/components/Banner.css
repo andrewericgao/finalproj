@@ -1,32 +1,42 @@
-/* Banner.css */
-
 .banner {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
-    padding: 20px;
+    padding: 25px;
     margin-top: 20px;
-    background-color: #fff; /* White background for a clean look */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid #eaeaea; /* Subtle border */
+    background: linear-gradient(145deg, #f0f0f0, #ffffff);
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1),
+                -5px -5px 15px rgba(255, 255, 255, 0.7);
+    border: none;
 }
 
 .banner-item {
     text-align: center;
+    flex: 1;
 }
 
 .banner-title {
-    font-size: 0.85rem;
-    color: #7a7a7a; /* Soft gray for titles */
+    display: block;
+    font-size: 1rem;
+    color: #555;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+    letter-spacing: 1.2px;
+    margin-bottom: 10px;
 }
 
 .banner-value {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #4a90e2; /* Blue color for values */
-    letter-spacing: 0.5px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #4a90e2; 
+    letter-spacing: 0.8px;
+    background: -webkit-linear-gradient(45deg, #6a11cb, #2575fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Adding a hover effect */
+.banner-item:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
 }
