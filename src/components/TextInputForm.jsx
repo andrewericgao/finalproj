@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import './TextInputForm.css';
+import { ReactComponent as UpArrowIcon } from './up-arrow-icon.svg';
 
 const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
     const [text, setText] = useState('');
+    const [isTextEntered, setIsTextEntered] = useState(false);
 
     const handleTextChange = (e) => {
         const newText = e.target.value;
         setText(newText);
         onTextChange(newText);
+        setIsTextEntered(newText.trim() !== '');
     };
 
     const callAPI = async (inputText) => {
@@ -34,6 +37,9 @@ const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (!isTextEntered) {
+            return;
+        }
         const comments = text.split('\n').filter(comment => comment.trim() !== '');
         const results = await Promise.all(comments.map(comment => callAPI(comment)));
         onAnalysisComplete(results);
@@ -42,14 +48,15 @@ const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
     return (
         <div className="text-input-form">
             <form onSubmit={handleSubmit}>
-                <label className="input-label">Enter your text (one comment per line):</label>
                 <textarea 
                     className="text-input" 
                     value={text} 
                     onChange={handleTextChange}
-                    placeholder="Type your comments here..."
+                    placeholder="Enter your texts (one comment per line)"
                 />
-                <button type="submit" className="submit-button">Analyze Sentiment</button>
+            <button type="submit" className={`submit-button ${isTextEntered ? '' : 'inactive'}`}>
+                <UpArrowIcon />
+            </button>
             </form>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
-// import './CommentsTable.css';
-import './SentimentPieChart.css';
+import './commentsTable.css';
+// import './SentimentPieChart.css';
 
 const CommentsTable = ({ commentsData }) => {
   if (commentsData.length === 0) {
