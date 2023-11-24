@@ -7,14 +7,42 @@ import WordCloud from './components/WordCloud';
 import TopWords from './components/TopWords';
 import CommentsTable from './components/CommentsTable';
 
+const stopwords = [
+  'a', 'about', 'all', 'am', 'an', 'and', 'any', 'are', 'as', 'at', 'be', 'because', 'been', 'both', 'but', 
+  'by', 'can', 'did', 'do', 'does', 'down', 'each', 'few', 'for', 'from', 'had', 'has', 'have', 'he', 'her', 
+  'here', 'him', 'his', 'how', 'i', 'if', 'in', 'into', 'is', 'it', 'its', 'just', 'more', 'most', 'my', 'no', 
+  'not', 'now', 'of', 'on', 'one', 'only', 'or', 'other', 'our', 'out', 'over', 's', 'she', 'so', 'some', 
+  'such', 't', 'than', 'that', 'the', 'their', 'them', 'then', 'there', 'these', 'they', 'this', 'those', 
+  'through', 'to', 'too', 'under', 'until', 'up', 'very', 'was', 'we', 'were', 'what', 'when', 'where', 
+  'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'would', 'you', 'your'
+];
+
 function getWordFrequency(text) {
-    const words = text.toLowerCase().match(/\w+/g);
-    if (!words) return [];
-    const wordCount = words.reduce((acc, word) => {
-        acc[word] = (acc[word] || 0) + 1;
-        return acc;
-    }, {});
-    return Object.keys(wordCount).map(word => ({ text: word, value: wordCount[word] }));
+  text = text.toLowerCase()
+      .replace(/n't/g, ' not')
+      .replace(/'re/g, ' are')
+      .replace(/'s/g, ' is')
+      .replace(/'m/g, ' am')
+      .replace(/'ll/g, ' will')
+      .replace(/'ve/g, ' have')
+      .replace(/'d/g, ' would')
+      .replace(/[\r\n]+/g, ' ')
+      .replace(/https?:\/\/\S+/g, ' ')
+      .replace(/[\w.]+@\w+\.\w+/g, ' ');
+
+  let words = text.match(/\b[a-zA-Z']{3,}\b/g);
+  if (!words) return [];
+
+  words = words.filter(word => !stopwords.includes(word) && !word.includes("'"));
+
+  const wordCount = words.reduce((acc, word) => {
+      acc[word] = (acc[word] || 0) + 1;
+      return acc;
+  }, {});
+
+  return Object.entries(wordCount)
+      .map(([text, value]) => ({ text, value }))
+      .sort((a, b) => b.value - a.value);
 }
 
 function App() {
