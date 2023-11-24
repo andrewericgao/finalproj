@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pie } from 'react-chartjs-2';
-import './SentimentPieChart.css'; // Importing the CSS for styling
+import './SentimentPieChart.css';
 
 const SentimentPieChart = ({ sentimentData }) => {
     const data = {
@@ -9,7 +9,7 @@ const SentimentPieChart = ({ sentimentData }) => {
             {
                 label: 'Sentiment Distribution',
                 data: sentimentData,
-                backgroundColor: ['#49A54D', '#D32F2F', '#FFC107', '#7B1FA2'], // Updated color palette
+                backgroundColor: ['#49A54D', '#D32F2F', '#FFC107', '#7B1FA2'],
                 borderWidth: 0,
                 hoverOffset: 8,
             },
@@ -53,7 +53,7 @@ const SentimentPieChart = ({ sentimentData }) => {
         cutout: '65%',
         animation: {
             animateScale: true,
-            animateRotate: true // Rotate animation for dynamic entry
+            animateRotate: true
         }
     };
 

@@ -55,6 +55,8 @@ function App() {
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
     const handleAnalysisComplete = (results) => {
+        console.log("Sentiment Analysis Results:", results);
+
         let sentimentCounts = { Positive: 0, Negative: 0, Neutral: 0, Mixed: 0 };
         results.forEach(result => {
             if (result) {
