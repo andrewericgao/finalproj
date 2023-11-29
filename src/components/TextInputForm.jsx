@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import './TextInputForm.css';
 import { ReactComponent as UpArrowIcon } from './up-arrow-icon.svg';
 
 const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
     const [text, setText] = useState('');
     const [isTextEntered, setIsTextEntered] = useState(false);
+    const [visibleSets, setVisibleSets] = useState({});
+
+    useEffect(() => {
+        const timers = [
+            setTimeout(() => setVisibleSets((v) => ({ ...v, instagramComments: true })), 400),  // After 500ms
+            setTimeout(() => setVisibleSets((v) => ({ ...v, twitterComments: true })), 800), // After 1000ms
+            setTimeout(() => setVisibleSets((v) => ({ ...v, linkedinComments: true })), 1200), // After 1500ms
+            setTimeout(() => setVisibleSets((v) => ({ ...v, wildcard: true })), 1600),         // After 2000ms
+        ];
+
+        return () => timers.forEach(clearTimeout);
+    }, []);
+
+    const variants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+    };
 
     const predefinedComments = {
         instagramComments: 
@@ -100,21 +118,30 @@ const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
 
     return (
         <div className="text-input-form">
-        {!isTextEntered && (
-            <div className="predefined-comments-container">
-                {Object.entries(predefinedComments).map(([platform, comments], index) => (
-                    <div key={platform} className="predefined-comment-set">
-                        <button
-                            className="predefined-set-button"
-                            onClick={() => handlePredefinedCommentClick(comments)}
-                        >
-                            <span className="platform-name">{platform.replace(/([A-Z])/g, ' $1').trim()}</span>
-                            <span className="comment-preview">"{comments.split('\n')[0].slice(0, 30)}..."</span>
-                        </button>
-                    </div>
-                ))}
-            </div>
-        )}
+            {!isTextEntered && (
+                <AnimatePresence>
+                    <motion.div 
+                        className="predefined-comments-container"
+                        initial="hidden"
+                        animate="visible"
+                        variants={variants}
+                        transition={{ staggerChildren: 0.5 }}
+                    >
+                        {Object.entries(predefinedComments).map(([platform, comments]) => visibleSets[platform] && (
+                            <motion.div key={platform} className="predefined-comment-set"
+                                variants={variants}>
+                                <button
+                                    className="predefined-set-button"
+                                    onClick={() => handlePredefinedCommentClick(comments)}
+                                >
+                                    <span className="platform-name">{platform.replace(/([A-Z])/g, ' $1').trim()}</span>
+                                    <span className="comment-preview">"{comments.split('\n')[0].slice(0, 30)}..."</span>
+                                </button>
+                            </motion.div>
+                        ))}
+                    </motion.div>
+                </AnimatePresence>
+            )}
             <form onSubmit={handleSubmit}>
                 <textarea 
                     className="text-input" 
@@ -128,6 +155,7 @@ const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
             </form>
         </div>
     );
+    
 };
 
 export default TextInputForm;
