@@ -1,14 +1,14 @@
 .comments-table-container {
-    width: 43%; /* Adjust width to take half of the container */
+    width: 44%; /* Adjust width to take half of the container */
     max-height: 400px;
     overflow-y: auto;
-    margin: 10px 1%; /* Adjust margins for proper spacing */
-    padding: 10px;
+    margin: 20px 20px 250px 80px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block; /* Ensure it aligns next to another inline-block element */
-    vertical-align: top; /* Aligns top of elements */
+    vertical-align: top; /*Aligns top of elements*/
 }
 
 @media (max-width: 768px) {

@@ -1,28 +1,36 @@
-// TopWords.jsx
-
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
+import Sentiment from 'sentiment';
 import './TopWords.css';
 
+const sentiment = new Sentiment();
+
 const TopWords = ({ wordData }) => {
-    // Sort the word data by frequency in descending order
     const sortedWordData = [...wordData].sort((a, b) => b.value - a.value);
+
+    // Function to determine the color based on sentiment score
+    const getSentimentColor = (word) => {
+        const result = sentiment.analyze(word);
+        if (result.score > 0) return '#49A54D'; // Positive sentiment
+        if (result.score < 0) return '#D32F2F';   // Negative sentiment
+        return '#FFC107';                        // Neutral sentiment
+    };
 
     const data = {
         labels: sortedWordData.map(word => word.text),
         datasets: [{
             label: 'Word Frequency',
             data: sortedWordData.map(word => word.value),
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: sortedWordData.map(word => getSentimentColor(word.text)),
+            borderColor: 'rgba(0, 0, 0, 0.1)',
             borderWidth: 1,
-            borderRadius: 5, // Rounded bars
+            borderRadius: 5,
             borderSkipped: false
         }]
     };
 
     const options = {
-        indexAxis: 'y', // Horizontal bar chart
+        indexAxis: 'y',
         elements: {
             bar: {
                 borderWidth: 2,
@@ -31,7 +39,7 @@ const TopWords = ({ wordData }) => {
         responsive: true,
         plugins: {
             legend: {
-                display: false // Hides the legend for a cleaner look
+                display: false
             },
             tooltip: {
                 mode: 'index',

@@ -1,8 +1,10 @@
 .word-cloud {
     float: right;
-    width: 43%;
+    width: 44%;
     height: 450px;
-    margin: 20px 1%;
+    /* margin: 30px 3%; */
+    /* margin-top: 20px; */
+    margin: 20px 25px 20px 20px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 15px;

@@ -1,15 +1,16 @@
 /* TopWords.css */
 
 .top-words-chart {
-    width: 48%; /* Adjust width to take half of the container */
-    height: auto; 
-    margin: 10px 1%; /* Adjust margins for proper spacing */
+    width: 44%; /* Adjust width to take half of the container */
+    height: 400px; 
+    margin: 20px 0px 20px 25px;
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: inline-block; /* Ensure it aligns next to another inline-block element */
     vertical-align: top; /* Aligns top of elements */
+    position: relative;
 }
 
 @media (max-width: 768px) {

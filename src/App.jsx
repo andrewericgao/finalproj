@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import WelcomeMessage from './components/WelcomeMessage';
 import TextInputForm from './components/TextInputForm';
 import Banner from './components/Banner';
@@ -54,6 +54,15 @@ function App() {
     const [commentsData, setCommentsData] = useState([]);
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
+    const [textInputHeight, setTextInputHeight] = useState(0);
+    const textInputRef = useRef(null);
+
+    useEffect(() => {
+        if (textInputRef.current) {
+            setTextInputHeight(textInputRef.current.clientHeight);
+        }
+    }, [hasSubmitted]); 
+
     const handleAnalysisComplete = (results) => {
         console.log("Sentiment Analysis Results:", results);
 
@@ -94,26 +103,27 @@ function App() {
     };
 
     return (
-      <div className="App">
-          <div className="content-area">
-              {!hasSubmitted && <WelcomeMessage />}
-              {hasSubmitted && (
-                  <>
-                      <Banner averageSentiment={averagePositiveSentiment} totalComments={totalComments} />
-                      <div className="charts-container">
-                          <SentimentPieChart sentimentData={sentimentData} />
-                          <WordCloud words={wordCloudData} />
-                      </div>
-                      <div className="analysis-container">
-                          <TopWords wordData={wordCloudData.slice(0, 10)} />
-                          <CommentsTable commentsData={commentsData} />
-                      </div>
-                  </>
-              )}
-          </div>
-          <TextInputForm onAnalysisComplete={handleAnalysisComplete} onTextChange={handleTextChange} />
-      </div>
-  );
+        <div className="App">
+            <div className="content-area">
+                {!hasSubmitted && <WelcomeMessage />}
+                {hasSubmitted && (
+                    <>
+                        <Banner averageSentiment={averagePositiveSentiment} totalComments={totalComments} />
+                        <div className="charts-container">
+                            <SentimentPieChart sentimentData={sentimentData} />
+                            <WordCloud words={wordCloudData} />
+                        </div>
+                        <div className="analysis-container">
+                            <TopWords wordData={wordCloudData.slice(0, 10)} />
+                            <CommentsTable commentsData={commentsData} />
+                        </div>
+
+                    </>
+                )}
+            </div>
+            <TextInputForm onAnalysisComplete={handleAnalysisComplete} onTextChange={handleTextChange} />
+        </div>
+    );
   
 }
 
