@@ -1,14 +1,17 @@
 .comments-table-container {
-    width: 44%; /* Adjust width to take half of the container */
-    max-height: 400px;
+    float: right;
+    width: 44%;
+    height: 450px;
+    /* margin: 30px 3%; */
+    /* margin-top: 20px; */
     overflow-y: auto;
-    margin: 20px 20px 250px 80px;
+    margin: 20px 25px 250px 20px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: inline-block; /* Ensure it aligns next to another inline-block element */
-    vertical-align: top; /*Aligns top of elements*/
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    transition: box-shadow 0.3s ease;
 }
 
 @media (max-width: 768px) {

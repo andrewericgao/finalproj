@@ -32,8 +32,8 @@
 
 /* Adjust the width of each component in the charts and analysis container */
 .sentiment-pie-chart, .word-cloud, .top-words-chart, .comments-table-container {
-  flex-basis: 48%;
-  max-width: 48%;
+  flex-basis: 40%;
+  max-width: 40%;
   box-sizing: border-box;
 }
 

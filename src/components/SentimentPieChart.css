@@ -1,7 +1,7 @@
 .sentiment-pie-chart {
     float: left;
     width: 44%;
-    height: 450px;
+    height: auto;
     /* top right bottom left */
     margin: 20px 0px 20px 25px;
     padding: 20px;
