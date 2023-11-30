@@ -147,7 +147,7 @@ const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
                     className="text-input" 
                     value={text} 
                     onChange={handleTextChange}
-                    placeholder="Enter your texts (one comment per line)"
+                    placeholder="Enter your texts (one comment per line) (max. 10 lines)"
                 />
                 <button type="submit" className={`submit-button ${isTextEntered ? '' : 'inactive'}`}>
                     <UpArrowIcon />
