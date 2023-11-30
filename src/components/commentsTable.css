@@ -2,8 +2,6 @@
     float: right;
     width: 44%;
     height: 450px;
-    /* margin: 30px 3%; */
-    /* margin-top: 20px; */
     overflow-y: auto;
     margin: 20px 25px 250px 20px;
     padding: 20px;
@@ -16,7 +14,7 @@
 
 @media (max-width: 768px) {
     .comments-table-container {
-        width: 100%; /* Full width for smaller screens */
+        width: 100%;
         margin: 10px 0;
     }
 }

@@ -10,10 +10,10 @@ const TextInputForm = ({ onAnalysisComplete, onTextChange }) => {
 
     useEffect(() => {
         const timers = [
-            setTimeout(() => setVisibleSets((v) => ({ ...v, instagramComments: true })), 400),  // After 500ms
-            setTimeout(() => setVisibleSets((v) => ({ ...v, twitterComments: true })), 800), // After 1000ms
-            setTimeout(() => setVisibleSets((v) => ({ ...v, linkedinComments: true })), 1200), // After 1500ms
-            setTimeout(() => setVisibleSets((v) => ({ ...v, wildcard: true })), 1600),         // After 2000ms
+            setTimeout(() => setVisibleSets((v) => ({ ...v, instagramComments: true })), 400),
+            setTimeout(() => setVisibleSets((v) => ({ ...v, twitterComments: true })), 800),
+            setTimeout(() => setVisibleSets((v) => ({ ...v, linkedinComments: true })), 1200),
+            setTimeout(() => setVisibleSets((v) => ({ ...v, wildcard: true })), 1600),
         ];
 
         return () => timers.forEach(clearTimeout);

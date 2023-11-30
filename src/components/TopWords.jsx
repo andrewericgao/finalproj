@@ -8,12 +8,11 @@ const sentiment = new Sentiment();
 const TopWords = ({ wordData }) => {
     const sortedWordData = [...wordData].sort((a, b) => b.value - a.value);
 
-    // Function to determine the color based on sentiment score
     const getSentimentColor = (word) => {
         const result = sentiment.analyze(word);
-        if (result.score > 0) return '#49A54D'; // Positive sentiment
-        if (result.score < 0) return '#D32F2F';   // Negative sentiment
-        return '#FFC107';                        // Neutral sentiment
+        if (result.score > 0) return '#49A54D';
+        if (result.score < 0) return '#D32F2F';
+        return '#FFC107';
     };
 
     const data = {
